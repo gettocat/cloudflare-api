@@ -58,15 +58,6 @@ Class CloudFlare extends CloudFlareApi {
 
     public function removeDomain($domain_id) {
         $data = $this->call('zones/' . $domain_id, array(), 'DELETE');
-
-        $log = new Apilog();
-        $log->api = 'CloudFlare';
-        $log->method = 'zones/' . $domain_id . ' delete';
-        $log->added = time();
-        $log->request = json_encode(array('domain'=>$domain_id));
-        $log->response = json_encode($data);
-        $log->save();
-
         return $data['result'];
     }
 

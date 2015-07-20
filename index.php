@@ -1,6 +1,6 @@
 <?php
 
-require_once './cloudflareapi.php';
+require_once './cloudflareapi.class.php';
 require_once './cloudflare.class.php';
 
 $result = CloudFlare::get()->addDomain("google.ru");
